@@ -99,8 +99,13 @@ p {
   border: 1px solid #ced4d9;
   border-radius: 15px;
   padding: 10px;
+  margin-bottom: 30px;
 }
 
 .extra-actuals-text {
   color: #9e9ea7;
+}
+
+.footer {
+  text-align: center;
 }
