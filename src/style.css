@@ -1,24 +1,6 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   letter-spacing: 1.5px;
-}
-
-header {
-  margin: 30px;
-  border: 1px solid #ced4d9;
-}
-
-h1 {
-  text-align: center;
-  padding: 30px;
-}
-
-h2 {
-  text-align: center;
 }
 
 h3 {
@@ -32,78 +14,72 @@ h6 {
   font-size: 12px;
   font-weight: 100;
   line-height: 28px;
+  display: inline;
+  padding-right: 10px;
 }
 
 p {
   font-size: 12px;
   color: #9e9ea7;
 }
-.menu {
-  width: 25%;
-  float: right;
-  padding: 30px;
+
+img {
+  max-height: 500px;
+  object-fit: cover;
 }
 
-.main {
-  width: 75%;
-  float: left;
-  padding: 30px;
-  border-right: 1px solid #ced4d9;
+.weather-app-wrapper {
+  max-width: 900px;
+  display: block;
+  margin: 20px auto;
+  background-color: #e9d0d8;
+  border-radius: 5px;
 }
 
-@media (max-width: 700px) {
-  .menu,
-  .main {
-    float: none;
-    width: 100%;
-    border: none;
-  }
+.card {
+  max-width: 900px;
+  display: block;
+  margin: 0 auto;
 }
 
 .search {
   display: block;
   margin: 0 auto;
-}
-
-.temperature {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 70px;
-  color: #25619b;
-  background-color: transparent;
-  border: none;
+  padding: 30px;
 }
 
 .actual-weather {
-  display: block;
-  margin: 50px auto;
-  border: 1px solid #25619b;
-  border-radius: 15px;
-  background-color: #c5e2ff;
-  color: #25619b;
-  padding-left: 10px;
+  background-color: rgb(253, 235, 231, 0.8);
+  border-radius: 5px;
+  padding: 10px;
+  height: 347px;
+  text-align: center;
+}
+
+.temperature {
+  font-size: 70px;
+  font-weight: bold;
+  color: #77a2c3;
+  background-color: transparent;
+  border: none;
 }
 
 .indication {
   display: block;
   margin: 0 auto;
-  text-align: center;
+  color: #77a2c3;
   font-size: 16px;
-  color: #25619b;
+  font-weight: bold;
 }
 
-.extra-actuals {
-  color: #343536;
-  background-color: #f8f9fa;
-  border: 1px solid #ced4d9;
-  border-radius: 15px;
+.table {
+  background-color: rgb(208, 150, 162, 0.8);
+  border-radius: 5px;
   padding: 10px;
-  margin-bottom: 30px;
 }
 
-.extra-actuals-text {
-  color: #9e9ea7;
+.weather-forecast-temperature-max {
+  font-weight: bold;
 }
 
 .footer {

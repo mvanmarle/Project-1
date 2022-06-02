@@ -25,19 +25,15 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container-fluid">
-      <header>
-        <h1>Weather App 🌎🌍🌏</h1>
-      </header>
-      <div class="main">
-        <h2>Dashboard</h2>
+    <div class="container">
+      <div class="weather-app-wrapper">
         <div class="search">
           <form id="search-form">
             <div class="row">
-              <div class="col-6">
+              <div class="col-8">
                 <input
                   type="search"
-                  placeholder="Type in a city"
+                  placeholder="Type in a city..."
                   id="search-input"
                   class="form-control"
                 />
@@ -46,120 +42,180 @@
                 <input
                   type="submit"
                   value="Search"
-                  class="form-control btn btn-outline-secondary"
+                  class="form-control btn btn-outline-danger opacity-50"
                 />
               </div>
-              <div class="col-3">
-                <input
-                  type="submit"
-                  value="Current"
-                  class="form-control btn btn-outline-primary"
+              <div class="col-1">
+                <button
+                  class="btn btn-outline-danger opacity-50"
                   id="currentWeather"
-                />
+                >
+                  <i class="fa-solid fa-location-arrow"></i>
+                </button>
               </div>
             </div>
           </form>
         </div>
-        <div class="actual-weather">
-          <h3>
-            <i class="fa-solid fa-location-pin"></i>
-            <span id="city"> Zandvoort </span>
-          </h3>
-          <h6><span class="dateTime"> Monday 14:32 </span></h6>
-          <p>
-            <button class="temperature">17°C</button>
-            <span class="indication"> Mostly clear </span>
-          </p>
-        </div>
-        <div class="row m-0">
-          <div class="col-6">
-            <div class="extra-actuals">
-              <h3>Wind</h3>
-              <h6>
-                <span class="extra-actuals-text"> Today wind speed </span>
-                <i class="fa-solid fa-wind"></i>
-              </h6>
-              <h3>12km/h</h3>
+      </div>
+      <div class="card">
+        <img
+          src="src/image/pexels-eberhard-grossgasteiger-844297.jpg"
+          alt="Image with clouds"
+          class="card-img img-fluid rounded"
+        />
+        <div class="card-img-overlay">
+          <div class="row">
+            <div class="col-lg-6 mt-5">
+              <div class="actual-weather">
+                <h3 id="city">Zandvoort</h3>
+                <h6><span class="dateTime"> Monday 14:32 </span></h6>
+                <p>
+                  <button class="temperature">17°</button>
+                  <span class="indication"> Mostly clear </span>
+                </p>
+                <h6><i class="fa-solid fa-wind"></i>: 12km/h</h6>
+                <h6><i class="fa-solid fa-droplet"></i>: 25%</h6>
+              </div>
             </div>
-          </div>
-          <div class="col-6">
-            <div class="extra-actuals">
-              <h3>Precipitation</h3>
-              <h6>
-                <span class="extra-actuals-text"> Today rain chanse </span>
-                <i class="fa-solid fa-cloud-rain"></i>
-              </h6>
-              <h3>25%</h3>
+            <div class="col-lg-6 mt-5">
+              <div class="table-responsive forecast-details">
+                <table class="table table-borderless table-hover">
+                  <tr>
+                    <td>
+                      <h6>Tuesday</h6>
+                    </td>
+                    <td>
+                      <img
+                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        alt=""
+                        width="42"
+                      />
+                    </td>
+                    <td>
+                      <span class="weather-forecast-temperature-max">
+                        31°
+                      </span>
+                      <span class="weather-forecast-temperature-min">
+                        20°
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h6>Wednessday</h6>
+                    </td>
+                    <td>
+                      <img
+                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        alt=""
+                        width="42"
+                      />
+                    </td>
+                    <td>
+                      <span class="weather-forecast-temperature-max">
+                        21°
+                      </span>
+                      <span class="weather-forecast-temperature-min">
+                        16°
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h6>Thursday</h6>
+                    </td>
+                    <td>
+                      <img
+                        src="http://openweathermap.org/img/wn/01d@2x.png"
+                        alt=""
+                        width="42"
+                      />
+                    </td>
+                    <td>
+                      <span class="weather-forecast-temperature-max">
+                        25°
+                      </span>
+                      <span class="weather-forecast-temperature-min">
+                        12°
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h6>Friday</h6>
+                    </td>
+                    <td>
+                      <img
+                        src="http://openweathermap.org/img/wn/01d@2x.png"
+                        alt=""
+                        width="42"
+                      />
+                    </td>
+                    <td>
+                      <span class="weather-forecast-temperature-max">
+                        25°
+                      </span>
+                      <span class="weather-forecast-temperature-min">
+                        10°
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h6>Saturday</h6>
+                    </td>
+                    <td>
+                      <img
+                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        alt=""
+                        width="42"
+                      />
+                    </td>
+                    <td>
+                      <span class="weather-forecast-temperature-max">
+                        27°
+                      </span>
+                      <span class="weather-forecast-temperature-min">
+                        13°
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h6>Sunday</h6>
+                    </td>
+                    <td>
+                      <img
+                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        alt=""
+                        width="42"
+                      />
+                    </td>
+                    <td>
+                      <span class="weather-forecast-temperature-max">
+                        23°
+                      </span>
+                      <span class="weather-forecast-temperature-min">
+                        17°
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
-          </div>
-          <div class="footer">
-            <p>
-              <a
-                href="https://github.com/mvanmarle/Project-1-WeatherApp"
-                target="_blank"
-                >Open source code</a
-              >
-              by Maureen van Marle 🌸
-            </p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="menu">
-      <h2>Forecast</h2>
-      <div class="forecast-details">
-        <table class="table table-borderless">
-          <tr>
-            <td>
-              <h6>Tuesday</h6>
-              <p>12 April</p>
-            </td>
-            <td>14°C</td>
-            <td>🌤</td>
-          </tr>
-          <tr>
-            <td>
-              <h6>Wednessday</h6>
-              <p>13 April</p>
-            </td>
-            <td>16°C</td>
-            <td>🌤</td>
-          </tr>
-          <tr>
-            <td>
-              <h6>Thursday</h6>
-              <p>14 April</p>
-            </td>
-            <td>18°C</td>
-            <td>☀️</td>
-          </tr>
-          <tr>
-            <td>
-              <h6>Friday</h6>
-              <p>15 April</p>
-            </td>
-            <td>10°C</td>
-            <td>🌧</td>
-          </tr>
-          <tr>
-            <td>
-              <h6>Saturday</h6>
-              <p>16 April</p>
-            </td>
-            <td>16°C</td>
-            <td>🌦</td>
-          </tr>
-          <tr>
-            <td>
-              <h6>Sunday</h6>
-              <p>17 April</p>
-            </td>
-            <td>16°C</td>
-            <td>🌤</td>
-          </tr>
-        </table>
+      <div class="footer">
+        <p>
+          <a
+            href="https://github.com/mvanmarle/Project-1-WeatherApp"
+            target="_blank"
+            >Open source code</a
+          >
+          by Maureen van Marle 🌸
+        </p>
       </div>
-    </div>
     </div>
     <script src="src/index.js"></script>
   </body>
