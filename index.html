@@ -34,7 +34,7 @@
                 <input
                   type="search"
                   placeholder="Type in a city..."
-                  id="search-input"
+                  id="city-input"
                   class="form-control"
                 />
               </div>
@@ -64,17 +64,23 @@
           class="card-img img-fluid rounded"
         />
         <div class="card-img-overlay">
-          <div class="row">
+          <div class="row container">
             <div class="col-lg-6 mt-5">
               <div class="actual-weather">
-                <h3 id="city">Zandvoort</h3>
-                <h6><span class="dateTime"> Monday 14:32 </span></h6>
+                <h3 id="city"></h3>
+                <h6>Last updated: <span id="dateTime"></span></h6>
                 <p>
-                  <button class="temperature">17°</button>
-                  <span class="indication"> Mostly clear </span>
+                  <strong id="temperature"></strong>
+                  <span id="units">°C | <a href="#">°F </a></span>
+                  <div id="description"></div>
                 </p>
-                <h6><i class="fa-solid fa-wind"></i>: 12km/h</h6>
-                <h6><i class="fa-solid fa-droplet"></i>: 25%</h6>
+                <h6>
+                  <i class="fa-solid fa-wind"></i>: <span id="wind"></span>km/h
+                </h6>
+                <h6>
+                  <i class="fa-solid fa-droplet"></i>:
+                  <span id="humidity"></span>%
+                </h6>
               </div>
             </div>
             <div class="col-lg-6 mt-5">

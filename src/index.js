@@ -1,5 +1,5 @@
-let currentDateAndTime = new Date();
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -10,40 +10,50 @@ function formatDate(date) {
     "Saturday",
   ];
 
-  let day = days[currentDateAndTime.getDay()];
-  let time = currentDateAndTime.toLocaleTimeString([], { timeStyle: "short" });
+  let day = days[date.getDay()];
+  let time = date.toLocaleTimeString([], { timeStyle: "short" });
 
   let formattedDate = `${day} ${time}`;
   return formattedDate;
 }
 
-let now = document.querySelector(".dateTime");
-now.innerHTML = formatDate();
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#dateTime");
 
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let searchResult = document.querySelector("#city");
-  searchResult.innerHTML = `${searchInput.value}`;
+  celsiusTemperature = response.data.main.temp;
 
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+}
+
+function search(city) {
   let units = "metric";
   let key = "dfaa96d44261907af5a2c46dbebfa5ad";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let url = `${apiEndpoint}?q=${searchInput.value}&appid=${key}&units=${units}`;
+  let url = `${apiEndpoint}?q=${city}&appid=${key}&units=${units}`;
 
-  axios.get(url).then(showTemperature);
+  axios.get(url).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSubmit);
 
-function showTemperature(response) {
-  console.log(response.data.main.temp);
-  let currentTemperature = document.querySelector(".temperature");
-  let temperature = Math.round(response.data.main.temp);
-
-  currentTemperature.innerHTML = `${temperature}°C`;
-}
+search("Zandvoort");
 
 function retrievePosition(position) {
   let latitude = position.coords.latitude;
@@ -58,10 +68,10 @@ function retrievePosition(position) {
 
 function showPositionTemperature(response) {
   console.log(response.data.main.temp);
-  let currentTemperature = document.querySelector(".temperature");
+  let currentTemperature = document.querySelector("#temperature");
   let temperature = Math.round(response.data.main.temp);
 
-  currentTemperature.innerHTML = `${temperature}°C`;
+  currentTemperature.innerHTML = `${temperature}`;
 
   let position = document.querySelector("#city");
   position.innerHTML = response.data.name;
