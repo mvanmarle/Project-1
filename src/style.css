@@ -62,6 +62,7 @@ img {
   color: #77a2c3;
   background-color: transparent;
   border: none;
+  line-height: 1;
 }
 
 #description {
@@ -70,6 +71,20 @@ img {
   color: #77a2c3;
   font-size: 16px;
   font-weight: bold;
+}
+
+#icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.active {
+  color: #9e9ea7;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
 }
 
 .table {
