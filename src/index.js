@@ -79,10 +79,10 @@ function displayCelsiusTemperature(event) {
 let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("Click", displayFahrenheitTemperature);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("Click", displayCelsiusTemperature);
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Zandvoort");
 

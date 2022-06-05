@@ -81,10 +81,16 @@ img {
 .active {
   color: #9e9ea7;
   cursor: default;
+  text-decoration: none;
 }
 
 .active:hover {
   text-decoration: none;
+}
+
+#fahrenheit-link {
+  text-decoration: none;
+  color: #77a2c3;
 }
 
 .table {
