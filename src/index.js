@@ -17,6 +17,51 @@ function formatDate(timestamp) {
   return formattedDate;
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednessday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let forecastHTML = `<div class="table-responsive forecast-details">
+<table class="table table-borderless table-hover">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<tr>
+    <td>
+      <h6>${day}</h6>
+    </td>
+    <td>
+      <img
+        src="http://openweathermap.org/img/wn/10d@2x.png"
+        alt=""
+        width="42"
+      />
+    </td>
+    <td>
+      <span class="weather-forecast-temperature-max">
+        31°
+      </span>
+      <span class="weather-forecast-temperature-min">
+        20°
+      </span>
+    </td>
+  </tr>
+    `;
+  });
+  forecastHTML = forecastHTML + `</table> </div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -56,9 +101,6 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -75,16 +117,6 @@ function displayCelsiusTemperature(event) {
   fahrenheitLink.classList.remove(".active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-search("Zandvoort");
 
 function retrievePosition(position) {
   let latitude = position.coords.latitude;
@@ -112,5 +144,18 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
 let button = document.querySelector("#currentWeather");
 button.addEventListener("click", getCurrentPosition);
+
+search("Zandvoort");
