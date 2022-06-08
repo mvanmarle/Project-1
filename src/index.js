@@ -143,44 +143,18 @@ function retrievePosition(position) {
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let url = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${key}&units=${units}`;
 
-  axios.get(url).then(showPositionTemperature);
+  axios.get(url).then(displayTemperature);
 }
 
-function positionForecast(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let units = "metric";
-  let key = "dfaa96d44261907af5a2c46dbebfa5ad";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall";
-  let url = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${key}&units=${units}`;
-
-  axios.get(url).then(displayForecast);
-}
-
-function showPositionTemperature(response) {
-  console.log(response.data.main.temp);
-  let currentTemperature = document.querySelector("#temperature");
-  let temperature = Math.round(response.data.main.temp);
-
-  currentTemperature.innerHTML = `${temperature}`;
-
-  let position = document.querySelector("#city");
-  position.innerHTML = response.data.name;
-}
-
-function getCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(positionWeather);
-}
-
-function positionWeather() {
-  retrievePosition();
-  positionForecast();
+function getCurrentPositionWeather(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#currentWeather");
-button.addEventListener("click", getCurrentPosition);
+button.addEventListener("click", getCurrentPositionWeather);
 
 search("Zandvoort");
