@@ -73,6 +73,10 @@ img {
   font-weight: bold;
 }
 
+#description:first-letter {
+  text-transform: capitalize;
+}
+
 #icon {
   display: block;
   margin: 0 auto;
